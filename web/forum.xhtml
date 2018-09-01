@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <head>
+    <title>MAS - Home</title>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" type="text/css" href="stylde.css" />
+    </head>
+<body>
+<div id="main">
+  <div id="left">
+    <div id="top">
+        <dl class="left">
+            <dt>Mod Releases</dt>
+            <dd><a href="https://github.com/Monika-After-Story/MonikaModDev/releases">0.8.4 - The Affection Update</a></dd>
+            <dd><a href="https://github.com/Monika-After-Story/MonikaModDev/releases">0.8.3 - Not Much Content Update</a></dd>
+            <dd><a href="https://github.com/Monika-After-Story/MonikaModDev/releases">0.8.2 - Calendar Update</a></dd>
+        </dl>
+        <dl class="right">
+            <ui:define name="latest">
+                <h:form styleClass="jsfcrud_list_form">
+                    <h:panelGroup id="messagePanel" layout="block">
+                        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                    </h:panelGroup>
+                    <h:outputText escape="false" value="#{bundle.ListPostEmpty}" rendered="#{postController.items.rowCount == 0}"/>
+                    <h:panelGroup rendered="#{postController.items.rowCount > 0}">
+                        <h:dataTable value="#{postController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListPostTitle_title}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.title}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListPostTitle_message}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.message}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListPostTitle_createdtime}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.createdtime}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                </h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListPostTitle_postuser}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.postuser}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </h:panelGroup>
+                    <br />
+                    <h:commandLink action="#{postController.prepareCreate}" value="#{bundle.ListPostCreateLink}"/>
+                    <br />
+                    <br />
+                    <h:link outcome="/index" value="#{bundle.ListPostIndexLink}"/>
+                </h:form>
+            </ui:define>
+<!--                        <dt>Latest Posts</dt>
+            <dd><a href="#">Topic 3 - what's OSWD?</a></dd>
+            <dd><a href="#">Topic 2 - what kind of music?</a></dd>
+            <dd><a href="#">Topic 1 - welcome to the board</a></dd>-->
+        </dl>
+        <div id="topbottom"> </div>
+    </div>
+    <div id="content">
+      <div id="headline">
+        <h1>Monika After Story &rsaquo; Forum</h1>
+      </div>
+      <h2>*Forum Under Construction*</h2>
+    </div>
+  </div>
+  <div id="right">
+    <div style="background: url(images/topright.gif) no-repeat top right; height: 10px;">&nbsp;</div>
+    <div id="inner">
+      <form action="registered.xhtml" method="post">
+        <label for="name">Name:</label>
+        <input type="text" size="10" name="name" id="name" />
+        <label for="pw">Password:</label>
+        <input type="password" size="10" name="pw" id="pw" />
+        <div style="text-align: right;"><a href="#">Register</a> |
+          <input type="submit" class="button" value="Go!" name="button" />
+        </div>
+      </form>
+      <br />
+      <br />
+      <h5>Site</h5>
+      <ul class="nav">
+        <li><a href="/MASForum/">Home</a></li>
+        <li><a href="/MASForum/forum.xhtml">Forum</a></li>
+        <li><a href="/MASForum/art_gallery.xhtml">Art Gallery</a></li>
+        <li><a href="/MASForum/links.xhtml">Links</a></li>
+        <li><a href="/MASForum/faces/wikiPost/wiki.xhtml">Mod Wiki</a></li>
+        <li><a href="/MASForum/faces/admin.xhtml">Admin Console</a></li>
+      </ul>
+    </div>
+  </div>
+  <br style="clear: both;" />
+</div>
+<div id="footer">Copyright @ Alex Fernandez</div>
+</body>
+</html>
+
