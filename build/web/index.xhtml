@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <head>
+        <title>MAS - Home</title>
+        <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+        <link rel="stylesheet" type="text/css" href="stylde.css" />
+    </head>
+    <h:body>
+        <div id="main">
+            <div id="left">
+                <div id="top">
+                    <dl class="left">
+                        <dt>Mod Releases</dt>
+                        <dd><a href="https://github.com/Monika-After-Story/MonikaModDev/releases" target="_blank">0.8.4 - The Affection Update</a></dd>
+                        <dd><a href="https://github.com/Monika-After-Story/MonikaModDev/releases" target="_blank">0.8.3 - Not Much Content Update</a></dd>
+                        <dd><a href="https://github.com/Monika-After-Story/MonikaModDev/releases" target="_blank">0.8.2 - Calendar Update</a></dd>
+                    </dl>
+                    <dl class="right">
+                        <dt>Latest Wiki Posts</dt>
+                        <h:form>
+                            <c:if test="#{wikiPostController.items.rowCount > 0}">
+                                <ui:repeat value="#{wikiPostController.items}" var="item">
+                                    <dd><h:outputLink value = "page1.jsf" ><h:outputText value="#{items.title}"/></h:outputLink></dd>
+                                </ui:repeat>  
+                            </c:if>
+                            <c:if test="#{wikiPostController.items.rowCount == 0}">
+                                    <dd>There's no post to show at the moment</dd>
+                            </c:if>
+                        </h:form>
+                    </dl>
+                    <div id="topbottom"> </div>
+                </div>
+                <div id="content">
+                    <div id="headline">
+                        <h1>Monika After Story &rsaquo; Home</h1>
+                    </div>
+                    <h2>About MAS</h2>
+                    <p>Monika After Story is a mod developed by a group of visual novel 
+                        enthusiasts for a game called Doki Doki Literature Club, a 
+                        psychological horror game created by Dan Salvato. This mod extends a 
+                        part of the story, creating a what-if scenario with one of the characters.
+                        It is recommended to finish the game first before using this mod.</p>
+                    <h2>About the forum/wiki</h2>
+                    <p>This site is for discussions about the mod and future submods that we plan on 
+                        implementing into the project, as well as a place where submod developers and 
+                        people having technical problems can get help by using the message board or the
+                        mod wiki.</p>
+                </div>
+            </div>
+            <div id="right">
+                <div style="background: url(images/topright.gif) no-repeat top right; height: 10px;">&nbsp;</div>
+                <div id="inner">
+                    <form action="registered.xhtml" method="post">
+                        <label for="name">Name:</label>
+                        <input type="text" size="10" name="name" id="name" />
+                        <label for="pw">Password:</label>
+                        <input type="password" size="10" name="pw" id="pw" />
+                        <div style="text-align: right;"><a href="/MASForum/faces/register.xhtml">Register</a> |
+                            <input type="submit" class="button" value="Go!" name="button" />
+                        </div>
+                    </form>
+                    <br />
+                    <br />
+                    <h5>Site</h5>
+                    <ul class="nav">
+                        <li><a href="/MASForum/">Home</a></li>
+                        <li><a href="/MASForum/forum.xhtml">Forum</a></li>
+                        <li><a href="/MASForum/art_gallery.xhtml">Art Gallery</a></li>
+                        <li><a href="/MASForum/links.xhtml">Links</a></li>
+                                <li><a href="/MASForum/faces/wikiPost/wiki.xhtml">Mod Wiki</a></li>
+                                <li><a href="/MASForum/faces/admin.xhtml">Admin Console</a></li>
+                    </ul>
+                </div>
+            </div>
+            <br style="clear: both;" />
+        </div>
+        <div id="footer">Copyright @ Alex Fernandez</div>
+    </h:body>
+</html>
+
